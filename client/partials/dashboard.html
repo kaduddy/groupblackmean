@@ -1,0 +1,26 @@
+<div>
+<!-- !-- add cookies user name vvv --> -->
+<h3>Welcome {{}}!</h3>
+<form>
+	<input type="text" placeholder="title" ng-model="bucklistsCtrl.newBucketlist.title" name="title">
+	<input type="text" placeholder="description" ng-model="bucketlistsCtrl.newBucketlist.description" name="description">
+	<!-- shouldn't have user in the dropdown -->
+	<select ng-model="bucketlistsCtrl.newBucketlist.user" name="user">
+	<!-- check ng-repeat and ng-value -->
+		<option ng-repeat="user in bucketlistsCtrl.users" ng-value = "user._id">{{user.name}}</option>
+	</select>
+	<!-- pass in the current user's id vvv -->
+	<input type="hidden" ng-model="bucketlistsCtrl.newBucketlist.creator" ng-value="creator._id" ng-init="bucketlistCtrl.user = creator._id">
+	<!-- bucketlistsCtrl.creator -->
+	<input type="submit" value="Add to List" ng-click="bucketlistsCtrl.create(bucketlistsCtrl.newBucketlist)">
+</form>
+
+<h4>Before I die, I want to...</h4>
+<!-- x in bucketlistsCtrl.WHAT? -->
+<input type="checkbox" ng-repeat="x in bucketlistsCtrl.bucketlists">{{x._user.name}} | {{x.title}} | {{x.description}} | {{x.created_at}}
+
+s
+<h4>List of logged users(Click to view profile)</h4>
+<!-- :id or {{_user._id}} -->
+<a href="#/user/{{user._id}}" ng-repeat="user in bucketlistsCtrl.users">{{user.name}}</a>
+</div>

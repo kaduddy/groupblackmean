@@ -1,0 +1,9 @@
+<div>
+	<h3>{{user.name}}'s Bucket List</h3>
+	
+	<h4>Done</h4>
+	<input type="checkbox" ng-repeat="x in bucketlistsCtrl.bucketlists">{{x._user.name}} | {{x.title}} | {{x.description}} | {{x.created_at}}
+
+	<h4>Pending</h4>
+	<input type="checkbox" ng-repeat="x in bucketlistsCtrl.bucketlists">{{x._user.name}} | {{x.title}} | {{x.description}} | {{x.created_at}}
+</div>
